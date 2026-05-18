@@ -16,11 +16,7 @@ builder.Services.AddDbContext<AppDbContext>(opt =>
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend",
-        policy => policy.WithOrigins(
-                            "http://localhost:5501",
-                            "http://127.0.0.1:5501"
-                            // Add production domain here: "https://yourdomain.com"
-                        )
+        policy => policy.AllowAnyOrigin()  // Temporary for development - allows all origins
                         .AllowAnyMethod()
                         .AllowAnyHeader());
 });
